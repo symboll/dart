@@ -12,7 +12,7 @@ void main(List<String> args) {
   }
 
   // 避空运算符
-  print(0 ?? 3);
+  // print(0 ?? 3);
   print(null ?? 12);
 
   var foo;
