@@ -12,7 +12,7 @@
 - `Dart` 生态
   - `https://pub.dev/`
   - `pub`命令 
-![ecosystem](../assets/lib-compare.jpg)
+![ecosystem](../assets/lib_compare.jpg)
 
 ## 自定义库
 ### 通过 library 来声明库

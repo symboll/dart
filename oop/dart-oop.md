@@ -142,3 +142,55 @@ List<Color> colors = Color.values
 ```dart
 asset(Color.green.index == 1);
 ```
+
+## extension(扩展)
+- `extension`关键字在`Dart2.7`及其以上才支持
+  - sdk: ">=2.7.0 <3.0.0"
+- `extension` 可以扩展对象的内容
+  ```dart
+    extension StringExtension on String {
+      // 扩展的内容
+    }
+  ```
+  - 扩展不仅可以定义方法，还可以定义 `setter`, `getter`, `operator`
+- 使用
+  - 声明扩展
+  - 引入扩展
+  - 使用扩展 (String.扩展内容)
+
+## call
+- 在类中可以声明call方法(方法名不能变)
+- 当我们将类的实例，用作函数时，会自动调用`call`方法
+```dart
+class IOSPhone {
+  call (String num) {
+    print('phone number is $num');
+  }
+}
+void main(List<String> args) {
+  IOSPhone p = IOSPhone();
+  p('911');
+}
+```
+
+## noSuchMethod
+- 当我们调用了一个类的，未定义的方法时，Dart会自动调用`noSuchMethod`
+- 使用前提
+  1. 类中声明了`noSuchMethod`(否则调用默认的`noSuchMethod`)
+  2. 实例化对象必须使用`dynamic`来修饰。`dynamic p = Persion()`
+  3. 调用的是未定义方法
+
+## hashCode
+- `hashCode` 是 Dart对象的唯一标识
+- `hashCode` 表现为一串数字
+- `Dart` 中的每个对象都有`hashCode`
+- 我们可以通过`hashCode` 来判断两个对象是否相等 
+
+## typedef
+- `typedef`可以用来自定义类型（别名），目的是让程序的可读性更强
+  - 我们可以在声明泛型时，使用自定义类型
+- 语法
+```dart
+typedef function_name (parameters);
+typedef variable_name = List<int>;
+```
