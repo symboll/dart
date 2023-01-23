@@ -108,5 +108,69 @@ final myFuture = Future.delayed(Duration(sections: 5), () => 123);
   - snapshot.data
 - snapshot.hasError (Completed with error)
 ## Stream
+- `Single-Subscription` (单一订阅)
+  - 数据流只能被listen一次(listen 多次会报错)
+  - StreamController().stream
+  - Stream stream = Stream.formIterable(data)
+
+- `Broadcast` (广播)
+  - 数据流可以被listen多次
+  - StreamController<int>.broadcast()
+  - stream.asBroadcastStream()
+### 创建stream实例
+- StreamController
+  - sink
+  - stream
+- Stream 类
+  - Stream.fromFuture()
+  - Stream.fromFutures()
+  - Stream.fromIterator()
+  - Stream.periodic(period)   // 周期
+### 操作stream
+- take() | takeWhile()
+- where()
+- distinct()
+- skip() | skipWhile()
+- map()
+- toList() | toSet() | toString()
+- length | first | last
+
+### StreamBuilder
+- `StreamBuilder`是 Flutter SDK 中提供的异步组件。
+  - `StreamBuilder` 是一个类，接受 Stream 数据，并将数据渲染成界面
+  - `import 'package:flutter/material.dart'`
+
+- `StreamBuilder` 中，有三个属性
+  - stream
+  - initialData
+  - builder(context, snapshot)
+
+##  Isolate / Future / Stream
+```
+Isolate / Future
+  两者都可以执行异步操作，但逻辑不同
+  Isolate的开销比 Future要大
+    Isolate需要重新开启线程，Future是单线程内的异步任务
+  异步任务耗时短，推荐使用Future，耗时长，推荐使用Isolate
+    耗时 < 100ms 选Future; 耗时 > 100ms 选Isolate
+```
+- Future  // 异步返回一个值
+- Stream  // 异步返回一些列值(数据流)
+- Isolate  // 通过创建新线程的方式，来实现异步
 ## async/await
+- async: 标记函数是一个异步函数，其返回值类型是`Future`
+- await: 等待某个异步方法执行完毕
+  - 用来等待耗时操作的返回结果，这个操作会阻塞到后面的代码
+- 作用
+  - await 会等待异步任务执行(相当于将异步转成同步)
+  - async-await 简化代码，防止毁掉地域的产生
+
 ## Generator
+- 生成器是一种特殊的函数，返回值通过`yield`关键词来指定。
+
+| 同步生成器 | 异步生成器 | 递归生成器
+| ---- | ---- | ----
+| `sync + yield` | `async + yield` | `yield*`
+|使用`sync*`，返回的是`Iterable`对象|使用 `async*`， 返回的是` Stream`对象 | `yield* `是指针，指针指向递归函数
+|`yield`会返回 `moveNext` 为 `ture`, 并等待 `moveNext`指令| yield 不用暂停，数据以流的方式一次性推送| 递归同步生成器 / 递归异步生成器
+
