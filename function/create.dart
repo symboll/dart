@@ -22,9 +22,8 @@ void main(List<String> args) {
 
   // 箭头函数  Lambda函数
    
-  fruits.forEach((element) => { 
-    print(element)     // 箭头函数中，不能写结束的分号（;）
-  });
+  fruits.forEach((element) => print(element));     // 箭头函数中，不能写结束的分号（;）
+
   fruits.forEach((element) => print('element: $element'));
 
 

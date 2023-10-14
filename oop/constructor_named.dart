@@ -16,7 +16,7 @@ class Point {
     this.y = map['y'];
   }
 
-  Point.fromJson2 ({ x: 0, y: 0  }) {
+  Point.fromJson2 ({ x = 0, y = 0  }) {
     this.x = x;
     this.y = y;
   }
@@ -30,4 +30,5 @@ void main(List<String> args) {
   print(p2.x);
 
   Point p3 = Point.fromJson2(x: 12, y: 24 );
+  print(p3.x);
 }

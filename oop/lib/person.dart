@@ -10,7 +10,8 @@ class Person {
   }
 
   // 声明私有方法
+  // ignore: unused_element
   void _wife () {
-     print('我是$name 的老婆');
+    print('我是$name 的老婆');
   }
 }

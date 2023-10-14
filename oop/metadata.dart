@@ -14,7 +14,6 @@ class Phone {
 }
 
 void main(List<String> args) {
-  Phone p = Phone();
-
-  p.activate();
+  // Phone p = Phone();
+  // p.activate();
 }

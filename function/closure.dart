@@ -1,5 +1,3 @@
-import 'create.dart';
-
 int globalNum = 100;
 
 void main(List<String> args) {

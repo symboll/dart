@@ -11,9 +11,10 @@ void main(List<String> args) {
   // l3.add(1);
   // print(l3);
 
-  List l4 = List.empty(growable: true);
-  l4.add(2);
-  print(l4);
+  // List l4 = List.empty(growable: true);
+  // l4.add(2);
+  // print(l4);
+  List l4 = [];
 
   List l5 = List.filled(4, 'a');  
   print(l5);
